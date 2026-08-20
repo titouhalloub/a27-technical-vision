@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A27 — Technical Vision &amp; Roadmap | Mohammad Reda Halloub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0B1B23;
+    --ink-2: #12262F;
+    --ink-3: #1A343F;
+    --gold: #C9A24B;
+    --gold-soft: #E4C878;
+    --sand: #B9AD97;
+    --paper: #EDE6D8;
+    --teal: #4C7A6E;
+    --teal-soft: #6FA093;
+    --line: rgba(237,230,216,0.14);
+    --max: 880px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--gold); color: var(--ink); }
+  h1, h2, h3 { font-family: 'Spectral', serif; font-weight: 500; margin: 0; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  a { color: var(--gold-soft); }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(11,27,35,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; padding-bottom: 16px; max-width: 1040px; }
+  .brand { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: var(--sand); text-transform: uppercase; }
+  .brand strong { color: var(--gold-soft); }
+  nav .cta {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.03em;
+    border: 1px solid var(--gold); color: var(--gold-soft); padding: 7px 14px; border-radius: 3px;
+    text-decoration: none; transition: background .2s ease, color .2s ease;
+  }
+  nav .cta:hover { background: var(--gold); color: var(--ink); }
+
+  header.hero { padding: 84px 0 40px; max-width: 1040px; margin: 0 auto; padding-left: 28px; padding-right: 28px; }
+  .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-soft); margin-bottom: 18px; }
+  h1.headline { font-size: clamp(34px, 5.4vw, 58px); line-height: 1.08; color: var(--paper); max-width: 15ch; }
+  h1.headline em { font-style: italic; color: var(--gold-soft); }
+  .sub { margin-top: 22px; font-size: 18px; color: var(--sand); max-width: 56ch; }
+  .byline { margin-top: 34px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--sand); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .byline .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
+
+  .diagram-section { max-width: 1040px; margin: 56px auto 0; padding: 0 28px; }
+  .diagram-frame {
+    border: 1px solid var(--line); border-radius: 6px; background: var(--ink-2);
+    padding: 28px 20px 18px;
+  }
+  .diagram-caption { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--sand); text-align: center; margin-top: 14px; letter-spacing: .02em; }
+  svg text { font-family: 'IBM Plex Mono', monospace; }
+  .track-path { fill: none; stroke-width: 2; stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: draw 1.8s ease forwards; }
+  .track-path.gold { stroke: var(--gold); }
+  .track-path.teal { stroke: var(--teal-soft); }
+  .track-path.delay { animation-delay: .25s; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .node circle { fill: var(--ink-2); stroke: var(--sand); stroke-width: 1.3; }
+  .node.gate circle { stroke: var(--gold-soft); }
+  .node text.label { fill: var(--paper); font-size: 11px; }
+  .node text.tag { fill: var(--sand); font-size: 9.5px; }
+  @media (prefers-reduced-motion: reduce) {
+    .track-path { animation: none; stroke-dashoffset: 0; }
+  }
+
+  section { padding: 76px 0; border-top: 1px solid var(--line); }
+  section .wrap { max-width: var(--max); }
+  .section-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 34px; }
+  .section-num { font-family: 'IBM Plex Mono', monospace; color: var(--gold); font-size: 13px; }
+  h2.title { font-size: clamp(24px, 3.2vw, 32px); color: var(--paper); }
+  .lede { color: var(--sand); font-size: 16.5px; max-width: 62ch; margin-bottom: 30px; }
+
+  .grid-2 { display: flex; flex-wrap: wrap; gap: 18px; }
+  .grid-2 .card { flex: 1 1 calc(50% - 9px); min-width: 260px; }
+  .card {
+    background: var(--ink-2); border: 1px solid var(--line); border-radius: 6px; padding: 22px 22px 20px;
+  }
+  .card h3 { font-size: 17px; color: var(--gold-soft); margin-bottom: 10px; font-weight: 500; }
+  .card p { color: var(--sand); font-size: 14.5px; margin: 0; }
+
+  .pillar { display: grid; grid-template-columns: 46px 1fr; gap: 18px; padding: 22px 0; border-top: 1px solid var(--line); }
+  .pillar:first-of-type { border-top: none; }
+  .pillar .pnum { font-family: 'IBM Plex Mono', monospace; color: var(--gold); font-size: 14px; padding-top: 3px; }
+  .pillar h3 { font-size: 18px; color: var(--paper); margin-bottom: 8px; font-weight: 500; }
+  .pillar p { color: var(--sand); font-size: 15px; margin: 0; max-width: 66ch; }
+  .pillar .spec { display: inline-block; margin-top: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--teal-soft); background: rgba(76,122,110,0.12); border: 1px solid rgba(111,160,147,0.35); padding: 3px 9px; border-radius: 3px; }
+
+  table.matrix { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  table.matrix th { text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--sand); padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  table.matrix td { padding: 14px 14px; border-bottom: 1px solid var(--line); color: var(--paper); vertical-align: top; }
+  table.matrix td:first-child { color: var(--paper); font-weight: 500; }
+  .status { display: inline-flex; align-items: center; gap: 7px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 3px 9px; border-radius: 3px; white-space: nowrap; }
+  .status.built { color: var(--gold-soft); background: rgba(201,162,75,0.12); border: 1px solid rgba(228,200,120,0.35); }
+  .status.lead { color: var(--teal-soft); background: rgba(76,122,110,0.12); border: 1px solid rgba(111,160,147,0.35); }
+  .status.hire { color: var(--sand); background: rgba(185,173,151,0.1); border: 1px solid rgba(185,173,151,0.3); }
+
+  .roadmap { display: flex; flex-direction: column; }
+  .phase { display: grid; grid-template-columns: 130px 1fr; gap: 22px; padding: 26px 0; border-top: 1px solid var(--line); position: relative; }
+  .phase:first-child { border-top: none; }
+  .phase-when { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--gold-soft); padding-top: 2px; }
+  .phase h3 { font-size: 17px; margin-bottom: 6px; color: var(--paper); font-weight: 500; }
+  .phase .trigger { font-size: 13px; color: var(--teal-soft); font-family: 'IBM Plex Mono', monospace; margin-bottom: 10px; }
+  .phase ul { margin: 0; padding-left: 18px; color: var(--sand); font-size: 14.5px; }
+  .phase li { margin-bottom: 4px; }
+  .phase .burn { margin-top: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--sand); }
+
+  .metrics { display: flex; flex-wrap: wrap; gap: 16px; }
+  .metric { background: var(--ink-2); border: 1px solid var(--line); border-radius: 6px; padding: 20px; text-align: center; flex: 1 1 calc(33.333% - 11px); min-width: 160px; }
+  .metric .num { font-family: 'Spectral', serif; font-size: 30px; color: var(--gold-soft); }
+  .metric .label { font-size: 12.5px; color: var(--sand); margin-top: 6px; }
+
+  .close h2 { font-size: clamp(26px, 3.6vw, 36px); max-width: 20ch; margin-bottom: 20px; }
+  .close p.lede2 { color: var(--sand); font-size: 16.5px; max-width: 58ch; margin-bottom: 30px; }
+  .contact-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .contact-row a.btn {
+    font-family: 'IBM Plex Mono', monospace; font-size: 13.5px; text-decoration: none;
+    padding: 12px 20px; border-radius: 4px; border: 1px solid var(--gold); color: var(--ink);
+    background: var(--gold-soft); transition: transform .15s ease;
+  }
+  .contact-row a.btn:hover { transform: translateY(-1px); }
+  .contact-row a.btn.ghost { background: transparent; color: var(--gold-soft); }
+  footer { border-top: 1px solid var(--line); padding: 26px 0 40px; }
+  footer .wrap { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--sand); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+  @media (max-width: 720px) {
+    .grid-2 .card { flex: 1 1 100%; }
+    .metric { flex: 1 1 calc(50% - 8px); }
+    .phase { grid-template-columns: 1fr; }
+    table.matrix { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">A27 <strong>/// Technical Vision</strong></div>
+    <a class="cta" href="#close">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Proposed by Mohammad Reda Halloub — for the role of CTO</div>
+  <h1 class="headline">One ledger.<br>Two tracks.<br><em>Zero compromise.</em></h1>
+  <p class="sub">A working architecture for a structured finance platform that serves Islamic and traditional capital markets from the same codebase — where Shariah compliance is a configuration, not an afterthought.</p>
+  <div class="byline">
+    <span class="dot"></span> 13+ years owning production systems &nbsp;·&nbsp; hands-on with LLM-based extraction &amp; retrieval pipelines &nbsp;·&nbsp; blockchain protocol work since 2024
+  </div>
+</header>
+
+<div class="diagram-section">
+  <div class="diagram-frame">
+    <svg viewBox="0 0 900 260" width="100%" role="img" aria-label="Diagram showing one application splitting into a traditional finance track and an Islamic finance track through a shared compliance gateway, then reuniting in a unified ledger.">
+      <g class="node">
+        <circle cx="60" cy="130" r="26"/>
+        <text x="60" y="127" text-anchor="middle" class="label">Apply</text>
+        <text x="60" y="140" text-anchor="middle" class="tag">borrower</text>
+      </g>
+      <g class="node gate">
+        <circle cx="280" cy="130" r="30"/>
+        <text x="280" y="126" text-anchor="middle" class="label">Compliance</text>
+        <text x="280" y="138" text-anchor="middle" class="tag">gateway</text>
+      </g>
+      <path class="track-path gold" d="M 86 130 L 250 130 M 310 118 C 400 68, 520 62, 620 68 C 700 73, 760 100, 800 128" />
+      <g class="node">
+        <circle cx="600" cy="55" r="26"/>
+        <text x="600" y="51" text-anchor="middle" class="label">Murabaha</text>
+        <text x="600" y="63" text-anchor="middle" class="tag">traditional</text>
+      </g>
+      <path class="track-path teal delay" d="M 86 130 L 250 130 M 310 142 C 400 192, 520 198, 620 192 C 700 187, 760 160, 800 132" />
+      <g class="node">
+        <circle cx="600" cy="205" r="26"/>
+        <text x="600" y="201" text-anchor="middle" class="label">Musharakah</text>
+        <text x="600" y="213" text-anchor="middle" class="tag">islamic · fatwa-linked</text>
+      </g>
+      <g class="node gate">
+        <circle cx="830" cy="130" r="30"/>
+        <text x="830" y="126" text-anchor="middle" class="label">Unified</text>
+        <text x="830" y="138" text-anchor="middle" class="tag">ledger</text>
+      </g>
+    </svg>
+    <div class="diagram-caption">compliance_mode: TRADITIONAL | ISLAMIC — same schema, same audit trail, branching business logic</div>
+  </div>
+</div>
+
+<section id="grounding">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">01</span><h2 class="title">Where this is grounded</h2></div>
+    <p class="lede">A CTO pitch is only useful if it's honest about which parts are proven and which are proposed. Here's the real foundation this architecture is built on.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Production ownership, not prototypes</h3>
+        <p>13+ years running high-availability infrastructure in healthcare and academic environments — real on-call, real uptime accountability, real consequences when something breaks.</p>
+      </div>
+      <div class="card">
+        <h3>Hands-on AI systems work</h3>
+        <p>Recent, direct experience building LLM-based extraction and retrieval pipelines: structured output parsing, confidence-gated retrieval that escalates uncertainty instead of guessing, and bounded-concurrency processing for batches of model calls.</p>
+      </div>
+      <div class="card">
+        <h3>Blockchain, from the protocol level up</h3>
+        <p>Consulting work on Ethereum and Hyperledger implementations since 2024, plus independent research into elliptic-curve cryptography and attack surfaces — the security fundamentals tokenization depends on.</p>
+      </div>
+      <div class="card">
+        <h3>What I'm not claiming</h3>
+        <p>I have not personally operated Temporal, Feast, MLflow, or Fireblocks in production, and I'm not a Shariah scholar. The architecture below accounts for exactly that — see the honesty matrix and hiring plan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="architecture">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">02</span><h2 class="title">How I'd architect it</h2></div>
+    <p class="lede">Three decisions matter more than any single tool choice. Get these right and the stack underneath is largely a build-vs-buy exercise.</p>
+
+    <div class="pillar">
+      <div class="pnum">A</div>
+      <div>
+        <h3>Compliance as configuration, not a fork</h3>
+        <p>Every product carries a <span class="mono">compliance_mode</span> flag — <span class="mono">TRADITIONAL</span> or <span class="mono">ISLAMIC</span>. One schema, one audit trail, branching business logic. This avoids the trap most dual-track platforms fall into: maintaining two codebases that quietly drift apart.</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pnum">B</div>
+      <div>
+        <h3>Confidence-gated extraction, human-in-the-loop by design</h3>
+        <p>Every document extraction — loan terms, profit-share ratios, fatwa references — gets a confidence score. Below threshold, it doesn't guess; it routes to a human reviewer, and for Islamic-track products, to Shariah board review specifically.</p>
+        <span class="spec">threshold: 0.85 for financial extraction — higher than general-purpose RAG, because being wrong here has a different cost</span>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pnum">C</div>
+      <div>
+        <h3>Tokenization as a roadmap, not a launch requirement</h3>
+        <p>Real-world asset tokenization is where this platform is headed, not where it starts. Permissioned ledger, identity-gated token standard, Shariah verification module attached at the token level — sequenced after the lending and compliance core is proven with real customers, not before.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="matrix">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">03</span><h2 class="title">Built, directed, or hired — honestly</h2></div>
+    <p class="lede">The job of a first CTO isn't knowing every tool. It's knowing exactly which of these three columns each capability belongs in, and being right about it.</p>
+    <table class="matrix">
+      <tr><th>Capability</th><th>Status</th><th>Detail</th></tr>
+      <tr>
+        <td>LLM extraction &amp; RAG pipelines</td>
+        <td><span class="status built">● built by me</span></td>
+        <td>Structured output, confidence gating, concurrent batch processing — done, working, extendable to financial documents.</td>
+      </tr>
+      <tr>
+        <td>Blockchain / protocol architecture</td>
+        <td><span class="status built">● built by me</span></td>
+        <td>Ethereum &amp; Hyperledger implementation experience; cryptographic security research underneath the tokenization roadmap.</td>
+      </tr>
+      <tr>
+        <td>Production infra &amp; reliability</td>
+        <td><span class="status built">● built by me</span></td>
+        <td>13+ years, real on-call, high-availability systems where downtime has consequences.</td>
+      </tr>
+      <tr>
+        <td>Compliance-as-configuration design</td>
+        <td><span class="status lead">◐ i'd lead it</span></td>
+        <td>Architectural pattern I'd own and drive — needs a Shariah consultant to validate contract structures against, not to invent alone.</td>
+      </tr>
+      <tr>
+        <td>Risk scoring / ML models (XGBoost, feature stores)</td>
+        <td><span class="status hire">○ first hire</span></td>
+        <td>Phase 2 senior ML/data engineer. I can spec the requirements and evaluate candidates; I won't pretend to have built this myself.</td>
+      </tr>
+      <tr>
+        <td>Institutional custody &amp; token issuance</td>
+        <td><span class="status hire">○ first hire</span></td>
+        <td>Phase 3 blockchain engineer, once tokenization moves from roadmap to build. Vendor-driven (Fireblocks/BitGo) either way.</td>
+      </tr>
+      <tr>
+        <td>AAOIFI / Shariah board process</td>
+        <td><span class="status hire">○ contractor, from day one</span></td>
+        <td>Never in-house-only. A named Shariah consultant is in the Phase 0 budget below, not an afterthought.</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">04</span><h2 class="title">The hiring roadmap</h2></div>
+    <p class="lede">Capital-efficient by design — every hire is triggered by a real milestone, not a headcount target.</p>
+    <div class="roadmap">
+      <div class="phase">
+        <div class="phase-when">Months 0–3</div>
+        <div>
+          <h3>Founder mode</h3>
+          <div class="trigger">trigger: day one</div>
+          <ul>
+            <li>Me (CTO) — building the MVP directly, AI-assisted, equity-first compensation</li>
+            <li>Founding CEO — customer discovery, compliance groundwork, fundraising</li>
+            <li>Shariah consultant (contractor) — validates product structures and fatwa references from the start</li>
+          </ul>
+          <div class="burn">~$5K/month burn · milestone: MVP ingests real loan documents, traditional + Islamic, and extracts structured data correctly</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-when">Months 3–6</div>
+        <div>
+          <h3>First pilot, first hire</h3>
+          <div class="trigger">trigger: signed pilot LOI</div>
+          <ul>
+            <li>Full-stack/AI engineer — reliable UI, integrations, pilot support</li>
+          </ul>
+          <div class="burn">~$15K/month burn · milestone: 10 real loans processed for a pilot customer</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-when">Months 6–12</div>
+        <div>
+          <h3>Core team</h3>
+          <div class="trigger">trigger: seed round closed</div>
+          <ul>
+            <li>Senior backend/data engineer — ingestion, ETL, integrations at scale</li>
+            <li>Senior AI/ML engineer — model training, evaluation, monitoring</li>
+            <li>Full-stack engineer — customer-facing product</li>
+          </ul>
+          <div class="burn">~$45K/month burn</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-when">Months 12–24</div>
+        <div>
+          <h3>Specialize</h3>
+          <div class="trigger">trigger: 5+ paying enterprise customers, consistent revenue</div>
+          <ul>
+            <li>DevOps/SRE, QA/test engineer, blockchain engineer, full-time Shariah compliance officer</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="metrics">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">05</span><h2 class="title">What I'd be measured on</h2></div>
+    <p class="lede">Numbers I'd commit to before building, not after — and accept if I miss them.</p>
+    <div class="metrics">
+      <div class="metric"><div class="num">&gt;95%</div><div class="label">extraction accuracy, key fields</div></div>
+      <div class="metric"><div class="num">100%</div><div class="label">Islamic-track Shariah compliance rate</div></div>
+      <div class="metric"><div class="num">&lt;5 min</div><div class="label">time-to-decision</div></div>
+      <div class="metric"><div class="num">&gt;20%</div><div class="label">responsible approval lift</div></div>
+      <div class="metric"><div class="num">100%</div><div class="label">audit traceability, every decision</div></div>
+      <div class="metric"><div class="num">99.9%</div><div class="label">platform uptime target</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="close" class="close">
+  <div class="wrap">
+    <h2>Let's find out if this is right, in a real conversation.</h2>
+    <p class="lede2">This is a proposal, not a finished blueprint — I'd rather stress-test it with you and your team than pretend it's beyond question. I'm ready to go deep on any piece of it, including the parts I'd need to hire for.</p>
+    <div class="contact-row">
+      <a class="btn" href="mailto:reda.halloub@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://linkedin.com/in/redahalloub" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Mohammad Reda Halloub — Technical Vision for A27</span>
+    <span>Prepared for review, not a final specification</span>
+  </div>
+</footer>
+
+</body>
+</html>
