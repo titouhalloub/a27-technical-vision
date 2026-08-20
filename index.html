@@ -82,6 +82,17 @@
     .track-path { animation: none; stroke-dashoffset: 0; }
   }
 
+  /* bottleneck diagram */
+  .chip-problem rect { fill: var(--ink-2); stroke: var(--sand); stroke-width: 1.3; }
+  .chip-solution rect { fill: var(--ink-2); stroke: var(--teal-soft); stroke-width: 1.3; }
+  .chip text.label { fill: var(--paper); font-size: 12px; font-weight: 500; }
+  .chip text.tag { fill: var(--sand); font-size: 9.5px; }
+  .spine-line { stroke: var(--gold); stroke-width: 2; }
+  .connector { stroke: var(--sand); stroke-width: 1.3; opacity: 0.55; }
+  .spine-node circle { fill: var(--ink-2); stroke: var(--gold-soft); stroke-width: 1.3; }
+  .spine-pill rect { fill: var(--ink); stroke: var(--gold); stroke-width: 1.2; }
+  .spine-pill text { fill: var(--gold-soft); font-size: 10px; letter-spacing: 0.04em; }
+
   section { padding: 76px 0; border-top: 1px solid var(--line); }
   section .wrap { max-width: var(--max); }
   .section-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 34px; }
@@ -183,8 +194,8 @@
       <path class="track-path gold" d="M 86 130 L 250 130 M 310 118 C 400 68, 520 62, 620 68 C 700 73, 760 100, 800 128" />
       <g class="node">
         <circle cx="600" cy="55" r="26"/>
-        <text x="600" y="51" text-anchor="middle" class="label">Murabaha</text>
-        <text x="600" y="63" text-anchor="middle" class="tag">traditional</text>
+        <text x="600" y="51" text-anchor="middle" class="label">Term Loan</text>
+        <text x="600" y="63" text-anchor="middle" class="tag">conventional · interest-based</text>
       </g>
       <path class="track-path teal delay" d="M 86 130 L 250 130 M 310 142 C 400 192, 520 198, 620 192 C 700 187, 760 160, 800 132" />
       <g class="node">
@@ -227,9 +238,102 @@
   </div>
 </section>
 
+<section id="bottleneck">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">02</span><h2 class="title">The problem is bigger than lending</h2></div>
+    <p class="lede">Private capital markets run on the same four manual bottlenecks, fund after fund, regardless of Islamic or conventional structure. A platform that only automates loan origination misses most of the actual pain.</p>
+
+    <div class="diagram-frame" style="margin-bottom: 34px;">
+      <svg viewBox="0 0 900 420" width="100%" role="img" aria-label="Diagram mapping four private-market operational problems — subscription PDFs, capital call chaos, manual cap tables, and Excel reporting — through one shared AI extraction and compliance layer, to four solutions.">
+        <line class="spine-line" x1="450" y1="70" x2="450" y2="370"/>
+
+        <!-- row 1 -->
+        <line class="connector" x1="250" y1="70" x2="432" y2="70"/>
+        <line class="connector" x1="468" y1="70" x2="650" y2="70"/>
+        <g class="spine-node"><circle cx="450" cy="70" r="17"/></g>
+        <g class="chip chip-problem"><rect x="30" y="42" width="220" height="56" rx="8"/>
+          <text x="140" y="66" text-anchor="middle" class="label">Subscription PDFs</text>
+          <text x="140" y="82" text-anchor="middle" class="tag">50–100pg · hand-checked</text></g>
+        <g class="chip chip-solution"><rect x="650" y="42" width="220" height="56" rx="8"/>
+          <text x="760" y="66" text-anchor="middle" class="label">AI Extraction + AML</text>
+          <text x="760" y="82" text-anchor="middle" class="tag">confidence-gated</text></g>
+
+        <!-- row 2 -->
+        <line class="connector" x1="250" y1="170" x2="432" y2="170"/>
+        <line class="connector" x1="468" y1="170" x2="650" y2="170"/>
+        <g class="spine-node"><circle cx="450" cy="170" r="17"/></g>
+        <g class="chip chip-problem"><rect x="30" y="142" width="220" height="56" rx="8"/>
+          <text x="140" y="166" text-anchor="middle" class="label">Capital Call Chaos</text>
+          <text x="140" y="182" text-anchor="middle" class="tag">no shared calendar</text></g>
+        <g class="chip chip-solution"><rect x="650" y="142" width="220" height="56" rx="8"/>
+          <text x="760" y="166" text-anchor="middle" class="label">Orchestrated Calls</text>
+          <text x="760" y="182" text-anchor="middle" class="tag">parsed · scheduled · routed</text></g>
+
+        <!-- spine label -->
+        <g class="spine-pill"><rect x="335" y="205" width="230" height="30" rx="15"/>
+          <text x="450" y="224" text-anchor="middle">ONE AI + COMPLIANCE LAYER</text></g>
+
+        <!-- row 3 -->
+        <line class="connector" x1="250" y1="270" x2="432" y2="270"/>
+        <line class="connector" x1="468" y1="270" x2="650" y2="270"/>
+        <g class="spine-node"><circle cx="450" cy="270" r="17"/></g>
+        <g class="chip chip-problem"><rect x="30" y="242" width="220" height="56" rx="8"/>
+          <text x="140" y="266" text-anchor="middle" class="label">Manual Cap Tables</text>
+          <text x="140" y="282" text-anchor="middle" class="tag">ROFR by spreadsheet</text></g>
+        <g class="chip chip-solution"><rect x="650" y="242" width="220" height="56" rx="8"/>
+          <text x="760" y="266" text-anchor="middle" class="label">On-Chain Registry</text>
+          <text x="760" y="282" text-anchor="middle" class="tag">rules encoded once</text></g>
+
+        <!-- row 4 -->
+        <line class="connector" x1="250" y1="370" x2="432" y2="370"/>
+        <line class="connector" x1="468" y1="370" x2="650" y2="370"/>
+        <g class="spine-node"><circle cx="450" cy="370" r="17"/></g>
+        <g class="chip chip-problem"><rect x="30" y="342" width="220" height="56" rx="8"/>
+          <text x="140" y="366" text-anchor="middle" class="label">Excel Reporting</text>
+          <text x="140" y="382" text-anchor="middle" class="tag">copy-paste reconciliation</text></g>
+        <g class="chip chip-solution"><rect x="650" y="342" width="220" height="56" rx="8"/>
+          <text x="760" y="366" text-anchor="middle" class="label">Unified Ledger</text>
+          <text x="760" y="382" text-anchor="middle" class="tag">one data model</text></g>
+      </svg>
+      <div class="diagram-caption">four entry points, one pipeline — problem (left) → solution (right)</div>
+    </div>
+
+    <div class="pillar">
+      <div class="pnum">1</div>
+      <div>
+        <h3>Onboarding buried in bespoke PDFs</h3>
+        <p>Every GP uses a different subscription document template — 50 to 100 pages, hand-filled, manually checked for AML status and accreditation. One typo costs weeks. This is the same document-extraction problem the platform already solves for loan documents — it just needs to run on subscription docs too, with the same confidence-gated review before anything is accepted as verified.</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pnum">2</div>
+      <div>
+        <h3>Capital calls with no shared calendar</h3>
+        <p>LPs holding stakes across dozens of funds get hit with capital-call notices in different formats, on no unified timeline, routed through internal approval chains by hand before a wire goes out. There's no centralized payment rail on either side. This is a workflow-orchestration and notification problem as much as an extraction one — parse the notice, normalize it against a due-date calendar, route it through approval, trigger payment.</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pnum">3</div>
+      <div>
+        <h3>Cap tables that live in spreadsheets</h3>
+        <p>Secondary transfers require manually checking a company's bylaws, routing Board approval or Right-of-First-Refusal waivers, then a lawyer hand-updates a spreadsheet to log new ownership. Trades fall apart or take a month to clear. This is exactly what the tokenization roadmap already targets — an on-chain cap table with transfer rules and approval gates encoded once, not re-derived by a lawyer every time.</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pnum">4</div>
+      <div>
+        <h3>Portfolio reporting stuck in Excel</h3>
+        <p>Quarterly updates arrive as differently-formatted spreadsheets from every portfolio company; analysts copy, paste, and reconcile by hand, because best-of-breed point tools rarely talk to each other over an API. Same extraction pipeline, aimed at a different document type, feeding the same unified data warehouse instead of a dozen disconnected ones.</p>
+      </div>
+    </div>
+
+    <p class="lede" style="margin-top:8px; margin-bottom:0;">The pattern across all four: one AI extraction layer, one compliance gateway, one ledger — applied to every document type and workflow a fund actually deals with, not just loan origination. That's the platform this architecture should be, and the dual-track design already accommodates it.</p>
+  </div>
+</section>
+
 <section id="architecture">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">02</span><h2 class="title">How I'd architect it</h2></div>
+    <div class="section-head"><span class="section-num">03</span><h2 class="title">How I'd architect it</h2></div>
     <p class="lede">Three decisions matter more than any single tool choice. Get these right and the stack underneath is largely a build-vs-buy exercise.</p>
 
     <div class="pillar">
@@ -259,7 +363,7 @@
 
 <section id="matrix">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">03</span><h2 class="title">Built, directed, or hired — honestly</h2></div>
+    <div class="section-head"><span class="section-num">04</span><h2 class="title">Built, directed, or hired — honestly</h2></div>
     <p class="lede">The job of a first CTO isn't knowing every tool. It's knowing exactly which of these three columns each capability belongs in, and being right about it.</p>
     <table class="matrix">
       <tr><th>Capability</th><th>Status</th><th>Detail</th></tr>
@@ -304,7 +408,7 @@
 
 <section id="roadmap">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">04</span><h2 class="title">The hiring roadmap</h2></div>
+    <div class="section-head"><span class="section-num">05</span><h2 class="title">The hiring roadmap</h2></div>
     <p class="lede">Capital-efficient by design — every hire is triggered by a real milestone, not a headcount target.</p>
     <div class="roadmap">
       <div class="phase">
@@ -360,7 +464,7 @@
 
 <section id="metrics">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">05</span><h2 class="title">What I'd be measured on</h2></div>
+    <div class="section-head"><span class="section-num">06</span><h2 class="title">What I'd be measured on</h2></div>
     <p class="lede">Numbers I'd commit to before building, not after — and accept if I miss them.</p>
     <div class="metrics">
       <div class="metric"><div class="num">&gt;95%</div><div class="label">extraction accuracy, key fields</div></div>
