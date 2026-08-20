@@ -171,8 +171,8 @@
 
 <header class="hero">
   <div class="eyebrow">Proposed by Mohammad Reda Halloub — for the role of CTO</div>
-  <h1 class="headline">One ledger.<br>Two tracks.<br><em>Zero compromise.</em></h1>
-  <p class="sub">A working architecture for a structured finance platform that serves Islamic and traditional capital markets from the same codebase — where Shariah compliance is a configuration, not an afterthought.</p>
+  <h1 class="headline">Public markets settle<br>in a day.<br><em>Private markets still email PDFs.</em></h1>
+  <p class="sub">A27's real opportunity isn't just lending — it's the shared pipeline underneath onboarding, capital calls, cap tables, and reporting that private capital markets never got around to automating.</p>
   <div class="byline">
     <span class="dot"></span> 13+ years owning production systems &nbsp;·&nbsp; hands-on with LLM-based extraction &amp; retrieval pipelines &nbsp;·&nbsp; blockchain protocol work since 2024
   </div>
@@ -180,42 +180,95 @@
 
 <div class="diagram-section">
   <div class="diagram-frame">
-    <svg viewBox="0 0 900 260" width="100%" role="img" aria-label="Diagram showing one application splitting into a traditional finance track and an Islamic finance track through a shared compliance gateway, then reuniting in a unified ledger.">
-      <g class="node">
-        <circle cx="60" cy="130" r="26"/>
-        <text x="60" y="127" text-anchor="middle" class="label">Apply</text>
-        <text x="60" y="140" text-anchor="middle" class="tag">borrower</text>
-      </g>
-      <g class="node gate">
-        <circle cx="280" cy="130" r="30"/>
-        <text x="280" y="126" text-anchor="middle" class="label">Compliance</text>
-        <text x="280" y="138" text-anchor="middle" class="tag">gateway</text>
-      </g>
-      <path class="track-path gold" d="M 86 130 L 250 130 M 310 118 C 400 68, 520 62, 620 68 C 700 73, 760 100, 800 128" />
-      <g class="node">
-        <circle cx="600" cy="55" r="26"/>
-        <text x="600" y="51" text-anchor="middle" class="label">Term Loan</text>
-        <text x="600" y="63" text-anchor="middle" class="tag">conventional · interest-based</text>
-      </g>
-      <path class="track-path teal delay" d="M 86 130 L 250 130 M 310 142 C 400 192, 520 198, 620 192 C 700 187, 760 160, 800 132" />
-      <g class="node">
-        <circle cx="600" cy="205" r="26"/>
-        <text x="600" y="201" text-anchor="middle" class="label">Musharakah</text>
-        <text x="600" y="213" text-anchor="middle" class="tag">islamic · fatwa-linked</text>
-      </g>
-      <g class="node gate">
-        <circle cx="830" cy="130" r="30"/>
-        <text x="830" y="126" text-anchor="middle" class="label">Unified</text>
-        <text x="830" y="138" text-anchor="middle" class="tag">ledger</text>
-      </g>
+    <svg viewBox="0 0 900 420" width="100%" role="img" aria-label="Diagram mapping four private-market operational problems — subscription PDFs, capital call chaos, manual cap tables, and Excel reporting — through one shared AI extraction and compliance layer, to four solutions.">
+      <line class="spine-line" x1="450" y1="70" x2="450" y2="370"/>
+
+      <line class="connector" x1="250" y1="70" x2="432" y2="70"/>
+      <line class="connector" x1="468" y1="70" x2="650" y2="70"/>
+      <g class="spine-node"><circle cx="450" cy="70" r="17"/></g>
+      <g class="chip chip-problem"><rect x="30" y="42" width="220" height="56" rx="8"/>
+        <text x="140" y="66" text-anchor="middle" class="label">Subscription PDFs</text>
+        <text x="140" y="82" text-anchor="middle" class="tag">50–100pg · hand-checked</text></g>
+      <g class="chip chip-solution"><rect x="650" y="42" width="220" height="56" rx="8"/>
+        <text x="760" y="66" text-anchor="middle" class="label">AI Extraction + AML</text>
+        <text x="760" y="82" text-anchor="middle" class="tag">confidence-gated</text></g>
+
+      <line class="connector" x1="250" y1="170" x2="432" y2="170"/>
+      <line class="connector" x1="468" y1="170" x2="650" y2="170"/>
+      <g class="spine-node"><circle cx="450" cy="170" r="17"/></g>
+      <g class="chip chip-problem"><rect x="30" y="142" width="220" height="56" rx="8"/>
+        <text x="140" y="166" text-anchor="middle" class="label">Capital Call Chaos</text>
+        <text x="140" y="182" text-anchor="middle" class="tag">no shared calendar</text></g>
+      <g class="chip chip-solution"><rect x="650" y="142" width="220" height="56" rx="8"/>
+        <text x="760" y="166" text-anchor="middle" class="label">Orchestrated Calls</text>
+        <text x="760" y="182" text-anchor="middle" class="tag">parsed · scheduled · routed</text></g>
+
+      <g class="spine-pill"><rect x="335" y="205" width="230" height="30" rx="15"/>
+        <text x="450" y="224" text-anchor="middle">ONE AI + COMPLIANCE LAYER</text></g>
+
+      <line class="connector" x1="250" y1="270" x2="432" y2="270"/>
+      <line class="connector" x1="468" y1="270" x2="650" y2="270"/>
+      <g class="spine-node"><circle cx="450" cy="270" r="17"/></g>
+      <g class="chip chip-problem"><rect x="30" y="242" width="220" height="56" rx="8"/>
+        <text x="140" y="266" text-anchor="middle" class="label">Manual Cap Tables</text>
+        <text x="140" y="282" text-anchor="middle" class="tag">ROFR by spreadsheet</text></g>
+      <g class="chip chip-solution"><rect x="650" y="242" width="220" height="56" rx="8"/>
+        <text x="760" y="266" text-anchor="middle" class="label">On-Chain Registry</text>
+        <text x="760" y="282" text-anchor="middle" class="tag">rules encoded once</text></g>
+
+      <line class="connector" x1="250" y1="370" x2="432" y2="370"/>
+      <line class="connector" x1="468" y1="370" x2="650" y2="370"/>
+      <g class="spine-node"><circle cx="450" cy="370" r="17"/></g>
+      <g class="chip chip-problem"><rect x="30" y="342" width="220" height="56" rx="8"/>
+        <text x="140" y="366" text-anchor="middle" class="label">Excel Reporting</text>
+        <text x="140" y="382" text-anchor="middle" class="tag">copy-paste reconciliation</text></g>
+      <g class="chip chip-solution"><rect x="650" y="342" width="220" height="56" rx="8"/>
+        <text x="760" y="366" text-anchor="middle" class="label">Unified Ledger</text>
+        <text x="760" y="382" text-anchor="middle" class="tag">one data model</text></g>
     </svg>
-    <div class="diagram-caption">compliance_mode: TRADITIONAL | ISLAMIC — same schema, same audit trail, branching business logic</div>
+    <div class="diagram-caption">four entry points, one pipeline — problem (left) → solution (right)</div>
   </div>
 </div>
 
+<section id="bottleneck">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">01</span><h2 class="title">The four bottlenecks, in detail</h2></div>
+    <p class="lede">Same root cause every time: no shared pipeline. Here's what's actually broken at each step.</p>
+
+    <div class="pillar">
+      <div class="pnum">1</div>
+      <div>
+        <h3>Onboarding buried in bespoke PDFs</h3>
+        <p>Every GP uses a different subscription document template — 50 to 100 pages, hand-filled, manually checked for AML status and accreditation. One typo costs weeks. This is a document-extraction problem — run confidence-gated extraction on it, and nothing gets accepted as verified until it clears threshold.</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pnum">2</div>
+      <div>
+        <h3>Capital calls with no shared calendar</h3>
+        <p>LPs holding stakes across dozens of funds get hit with capital-call notices in different formats, on no unified timeline, routed through internal approval chains by hand before a wire goes out. There's no centralized payment rail on either side. This is a workflow-orchestration and notification problem as much as an extraction one — parse the notice, normalize it against a due-date calendar, route it through approval, trigger payment.</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pnum">3</div>
+      <div>
+        <h3>Cap tables that live in spreadsheets</h3>
+        <p>Secondary transfers require manually checking a company's bylaws, routing Board approval or Right-of-First-Refusal waivers, then a lawyer hand-updates a spreadsheet to log new ownership. Trades fall apart or take a month to clear. The fix is a registry with transfer rules and approval gates encoded once, not re-derived by a lawyer every time.</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pnum">4</div>
+      <div>
+        <h3>Portfolio reporting stuck in Excel</h3>
+        <p>Quarterly updates arrive as differently-formatted spreadsheets from every portfolio company; analysts copy, paste, and reconcile by hand, because best-of-breed point tools rarely talk to each other over an API. Same extraction pipeline, aimed at a different document type, feeding one data warehouse instead of a dozen disconnected ones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="grounding">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">01</span><h2 class="title">Where this is grounded</h2></div>
+    <div class="section-head"><span class="section-num">02</span><h2 class="title">Where this is grounded</h2></div>
     <p class="lede">A CTO pitch is only useful if it's honest about which parts are proven and which are proposed. Here's the real foundation this architecture is built on.</p>
     <div class="grid-2">
       <div class="card">
@@ -238,99 +291,6 @@
   </div>
 </section>
 
-<section id="bottleneck">
-  <div class="wrap">
-    <div class="section-head"><span class="section-num">02</span><h2 class="title">The problem is bigger than lending</h2></div>
-    <p class="lede">Private capital markets run on the same four manual bottlenecks, fund after fund, regardless of Islamic or conventional structure. A platform that only automates loan origination misses most of the actual pain.</p>
-
-    <div class="diagram-frame" style="margin-bottom: 34px;">
-      <svg viewBox="0 0 900 420" width="100%" role="img" aria-label="Diagram mapping four private-market operational problems — subscription PDFs, capital call chaos, manual cap tables, and Excel reporting — through one shared AI extraction and compliance layer, to four solutions.">
-        <line class="spine-line" x1="450" y1="70" x2="450" y2="370"/>
-
-        <!-- row 1 -->
-        <line class="connector" x1="250" y1="70" x2="432" y2="70"/>
-        <line class="connector" x1="468" y1="70" x2="650" y2="70"/>
-        <g class="spine-node"><circle cx="450" cy="70" r="17"/></g>
-        <g class="chip chip-problem"><rect x="30" y="42" width="220" height="56" rx="8"/>
-          <text x="140" y="66" text-anchor="middle" class="label">Subscription PDFs</text>
-          <text x="140" y="82" text-anchor="middle" class="tag">50–100pg · hand-checked</text></g>
-        <g class="chip chip-solution"><rect x="650" y="42" width="220" height="56" rx="8"/>
-          <text x="760" y="66" text-anchor="middle" class="label">AI Extraction + AML</text>
-          <text x="760" y="82" text-anchor="middle" class="tag">confidence-gated</text></g>
-
-        <!-- row 2 -->
-        <line class="connector" x1="250" y1="170" x2="432" y2="170"/>
-        <line class="connector" x1="468" y1="170" x2="650" y2="170"/>
-        <g class="spine-node"><circle cx="450" cy="170" r="17"/></g>
-        <g class="chip chip-problem"><rect x="30" y="142" width="220" height="56" rx="8"/>
-          <text x="140" y="166" text-anchor="middle" class="label">Capital Call Chaos</text>
-          <text x="140" y="182" text-anchor="middle" class="tag">no shared calendar</text></g>
-        <g class="chip chip-solution"><rect x="650" y="142" width="220" height="56" rx="8"/>
-          <text x="760" y="166" text-anchor="middle" class="label">Orchestrated Calls</text>
-          <text x="760" y="182" text-anchor="middle" class="tag">parsed · scheduled · routed</text></g>
-
-        <!-- spine label -->
-        <g class="spine-pill"><rect x="335" y="205" width="230" height="30" rx="15"/>
-          <text x="450" y="224" text-anchor="middle">ONE AI + COMPLIANCE LAYER</text></g>
-
-        <!-- row 3 -->
-        <line class="connector" x1="250" y1="270" x2="432" y2="270"/>
-        <line class="connector" x1="468" y1="270" x2="650" y2="270"/>
-        <g class="spine-node"><circle cx="450" cy="270" r="17"/></g>
-        <g class="chip chip-problem"><rect x="30" y="242" width="220" height="56" rx="8"/>
-          <text x="140" y="266" text-anchor="middle" class="label">Manual Cap Tables</text>
-          <text x="140" y="282" text-anchor="middle" class="tag">ROFR by spreadsheet</text></g>
-        <g class="chip chip-solution"><rect x="650" y="242" width="220" height="56" rx="8"/>
-          <text x="760" y="266" text-anchor="middle" class="label">On-Chain Registry</text>
-          <text x="760" y="282" text-anchor="middle" class="tag">rules encoded once</text></g>
-
-        <!-- row 4 -->
-        <line class="connector" x1="250" y1="370" x2="432" y2="370"/>
-        <line class="connector" x1="468" y1="370" x2="650" y2="370"/>
-        <g class="spine-node"><circle cx="450" cy="370" r="17"/></g>
-        <g class="chip chip-problem"><rect x="30" y="342" width="220" height="56" rx="8"/>
-          <text x="140" y="366" text-anchor="middle" class="label">Excel Reporting</text>
-          <text x="140" y="382" text-anchor="middle" class="tag">copy-paste reconciliation</text></g>
-        <g class="chip chip-solution"><rect x="650" y="342" width="220" height="56" rx="8"/>
-          <text x="760" y="366" text-anchor="middle" class="label">Unified Ledger</text>
-          <text x="760" y="382" text-anchor="middle" class="tag">one data model</text></g>
-      </svg>
-      <div class="diagram-caption">four entry points, one pipeline — problem (left) → solution (right)</div>
-    </div>
-
-    <div class="pillar">
-      <div class="pnum">1</div>
-      <div>
-        <h3>Onboarding buried in bespoke PDFs</h3>
-        <p>Every GP uses a different subscription document template — 50 to 100 pages, hand-filled, manually checked for AML status and accreditation. One typo costs weeks. This is the same document-extraction problem the platform already solves for loan documents — it just needs to run on subscription docs too, with the same confidence-gated review before anything is accepted as verified.</p>
-      </div>
-    </div>
-    <div class="pillar">
-      <div class="pnum">2</div>
-      <div>
-        <h3>Capital calls with no shared calendar</h3>
-        <p>LPs holding stakes across dozens of funds get hit with capital-call notices in different formats, on no unified timeline, routed through internal approval chains by hand before a wire goes out. There's no centralized payment rail on either side. This is a workflow-orchestration and notification problem as much as an extraction one — parse the notice, normalize it against a due-date calendar, route it through approval, trigger payment.</p>
-      </div>
-    </div>
-    <div class="pillar">
-      <div class="pnum">3</div>
-      <div>
-        <h3>Cap tables that live in spreadsheets</h3>
-        <p>Secondary transfers require manually checking a company's bylaws, routing Board approval or Right-of-First-Refusal waivers, then a lawyer hand-updates a spreadsheet to log new ownership. Trades fall apart or take a month to clear. This is exactly what the tokenization roadmap already targets — an on-chain cap table with transfer rules and approval gates encoded once, not re-derived by a lawyer every time.</p>
-      </div>
-    </div>
-    <div class="pillar">
-      <div class="pnum">4</div>
-      <div>
-        <h3>Portfolio reporting stuck in Excel</h3>
-        <p>Quarterly updates arrive as differently-formatted spreadsheets from every portfolio company; analysts copy, paste, and reconcile by hand, because best-of-breed point tools rarely talk to each other over an API. Same extraction pipeline, aimed at a different document type, feeding the same unified data warehouse instead of a dozen disconnected ones.</p>
-      </div>
-    </div>
-
-    <p class="lede" style="margin-top:8px; margin-bottom:0;">The pattern across all four: one AI extraction layer, one compliance gateway, one ledger — applied to every document type and workflow a fund actually deals with, not just loan origination. That's the platform this architecture should be, and the dual-track design already accommodates it.</p>
-  </div>
-</section>
-
 <section id="architecture">
   <div class="wrap">
     <div class="section-head"><span class="section-num">03</span><h2 class="title">How I'd architect it</h2></div>
@@ -340,7 +300,40 @@
       <div class="pnum">A</div>
       <div>
         <h3>Compliance as configuration, not a fork</h3>
-        <p>Every product carries a <span class="mono">compliance_mode</span> flag — <span class="mono">TRADITIONAL</span> or <span class="mono">ISLAMIC</span>. One schema, one audit trail, branching business logic. This avoids the trap most dual-track platforms fall into: maintaining two codebases that quietly drift apart.</p>
+        <p>Every product carries a <span class="mono">compliance_mode</span> flag — <span class="mono">TRADITIONAL</span> or <span class="mono">ISLAMIC</span>. One schema, one audit trail, branching business logic. This avoids the trap most dual-track platforms fall into: maintaining two codebases that quietly drift apart. It also means the four bottlenecks above get fixed once, not twice.</p>
+
+        <div class="diagram-frame" style="margin-top: 18px;">
+          <svg viewBox="0 0 900 260" width="100%" role="img" aria-label="Diagram showing one application splitting into a conventional finance track and an Islamic finance track through a shared compliance gateway, then reuniting in a unified ledger.">
+            <g class="node">
+              <circle cx="60" cy="130" r="26"/>
+              <text x="60" y="127" text-anchor="middle" class="label">Apply</text>
+              <text x="60" y="140" text-anchor="middle" class="tag">borrower</text>
+            </g>
+            <g class="node gate">
+              <circle cx="280" cy="130" r="30"/>
+              <text x="280" y="126" text-anchor="middle" class="label">Compliance</text>
+              <text x="280" y="138" text-anchor="middle" class="tag">gateway</text>
+            </g>
+            <path class="track-path gold" d="M 86 130 L 250 130 M 310 118 C 400 68, 520 62, 620 68 C 700 73, 760 100, 800 128" />
+            <g class="node">
+              <circle cx="600" cy="55" r="26"/>
+              <text x="600" y="51" text-anchor="middle" class="label">Term Loan</text>
+              <text x="600" y="63" text-anchor="middle" class="tag">conventional · interest-based</text>
+            </g>
+            <path class="track-path teal delay" d="M 86 130 L 250 130 M 310 142 C 400 192, 520 198, 620 192 C 700 187, 760 160, 800 132" />
+            <g class="node">
+              <circle cx="600" cy="205" r="26"/>
+              <text x="600" y="201" text-anchor="middle" class="label">Musharakah</text>
+              <text x="600" y="213" text-anchor="middle" class="tag">islamic · fatwa-linked</text>
+            </g>
+            <g class="node gate">
+              <circle cx="830" cy="130" r="30"/>
+              <text x="830" y="126" text-anchor="middle" class="label">Unified</text>
+              <text x="830" y="138" text-anchor="middle" class="tag">ledger</text>
+            </g>
+          </svg>
+          <div class="diagram-caption">compliance_mode: TRADITIONAL | ISLAMIC — same schema, same audit trail, branching business logic</div>
+        </div>
       </div>
     </div>
     <div class="pillar">
