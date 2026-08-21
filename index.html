@@ -266,9 +266,47 @@
   </div>
 </section>
 
+<section id="stopshort">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">02</span><h2 class="title">Where "digital" stops short</h2></div>
+    <p class="lede">Most serious funds already run a clean investor dashboard — cap table, contributions, documents, all digital. That's not the gap, and A27 isn't competing to build a nicer one. The gap is everything upstream of it, and everything across funds a single dashboard was never built to see.</p>
+
+    <table class="matrix">
+      <tr><th>Layer</th><th>What good platforms already do</th><th>Where it still breaks</th></tr>
+      <tr>
+        <td>Investor dashboard</td>
+        <td>Cap tables, ownership %, contributions, documents — all digital, all clean.</td>
+        <td>Someone still typed those numbers in by hand, off a PDF.</td>
+      </tr>
+      <tr>
+        <td>Legal documents</td>
+        <td>E-signed subscription agreements, shareholder agreements, board resolutions.</td>
+        <td>Every GP's template differs; compliance still reads each one manually for AML and accreditation.</td>
+      </tr>
+      <tr>
+        <td>Financial records</td>
+        <td>Clean, auditable transaction trail — inside one fund's own system.</td>
+        <td>Zero visibility across the other 49 funds an LP also holds. Every platform is its own island.</td>
+      </tr>
+      <tr>
+        <td>Cap table changes</td>
+        <td>Ownership updates instantly once approved, cleanly reflected in the UI.</td>
+        <td>The approval itself — bylaws check, Board sign-off, ROFR — still happens by email and spreadsheet, off-platform.</td>
+      </tr>
+      <tr>
+        <td>Compliance logic</td>
+        <td>KYC/AML fields exist and get filled in.</td>
+        <td>No category-standard platform encodes Islamic-track structuring at all. That logic doesn't exist yet, anywhere.</td>
+      </tr>
+    </table>
+
+    <p class="lede" style="margin-top: 28px; margin-bottom: 0;">The category has already solved "make the dashboard nice." What it hasn't solved is the extraction, cross-fund interoperability, and compliance layer that gets real data into that dashboard without a human retyping it — and that's what this architecture actually targets.</p>
+  </div>
+</section>
+
 <section id="grounding">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">02</span><h2 class="title">Where this is grounded</h2></div>
+    <div class="section-head"><span class="section-num">03</span><h2 class="title">Where this is grounded</h2></div>
     <p class="lede">A CTO pitch is only useful if it's honest about which parts are proven and which are proposed. Here's the real foundation this architecture is built on.</p>
     <div class="grid-2">
       <div class="card">
@@ -293,7 +331,7 @@
 
 <section id="architecture">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">03</span><h2 class="title">How I'd architect it</h2></div>
+    <div class="section-head"><span class="section-num">04</span><h2 class="title">How I'd architect it</h2></div>
     <p class="lede">Three decisions matter more than any single tool choice. Get these right and the stack underneath is largely a build-vs-buy exercise.</p>
 
     <div class="pillar">
@@ -356,7 +394,7 @@
 
 <section id="matrix">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">04</span><h2 class="title">Built, directed, or hired — honestly</h2></div>
+    <div class="section-head"><span class="section-num">05</span><h2 class="title">Built, directed, or hired — honestly</h2></div>
     <p class="lede">The job of a first CTO isn't knowing every tool. It's knowing exactly which of these three columns each capability belongs in, and being right about it.</p>
     <table class="matrix">
       <tr><th>Capability</th><th>Status</th><th>Detail</th></tr>
@@ -401,7 +439,7 @@
 
 <section id="roadmap">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">05</span><h2 class="title">The hiring roadmap</h2></div>
+    <div class="section-head"><span class="section-num">06</span><h2 class="title">The hiring roadmap</h2></div>
     <p class="lede">Capital-efficient by design — every hire is triggered by a real milestone, not a headcount target.</p>
     <div class="roadmap">
       <div class="phase">
@@ -457,7 +495,7 @@
 
 <section id="metrics">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">06</span><h2 class="title">What I'd be measured on</h2></div>
+    <div class="section-head"><span class="section-num">07</span><h2 class="title">What I'd be measured on</h2></div>
     <p class="lede">Numbers I'd commit to before building, not after — and accept if I miss them.</p>
     <div class="metrics">
       <div class="metric"><div class="num">&gt;95%</div><div class="label">extraction accuracy, key fields</div></div>
