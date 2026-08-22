@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A27 — Technical Vision &amp; Roadmap | Mohamed Reda Halloub</title>
+<title>A27 — Technical Vision &amp; Roadmap | Mohammad Reda Halloub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -170,7 +170,7 @@
 </nav>
 
 <header class="hero">
-  <div class="eyebrow">Proposed by Mohamed Reda Halloub — for the role of CTO</div>
+  <div class="eyebrow">Proposed by Mohammad Reda Halloub — for the role of CTO</div>
   <h1 class="headline">Public markets settle<br>in a day.<br><em>Private markets still email PDFs.</em></h1>
   <p class="sub">A27's real opportunity isn't just lending — it's the shared pipeline underneath onboarding, capital calls, cap tables, and reporting that private capital markets never got around to automating.</p>
   <div class="byline">
@@ -304,9 +304,72 @@
   </div>
 </section>
 
+<section id="competition">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">03</span><h2 class="title">The real competition, named honestly</h2></div>
+    <p class="lede">This isn't hypothetical. Nine well-funded, real companies already own pieces of this problem across every layer — worth naming them directly, grouped by what they actually do, rather than pretending the field is open.</p>
+
+    <table class="matrix">
+      <tr><th>Company</th><th>Owns</th><th>Real scale</th></tr>
+      <tr>
+        <td>Canoe Intelligence</td>
+        <td>Document extraction &amp; parsing</td>
+        <td>Being acquired by Bloomberg · 1M+ docs/month · 44,000+ funds</td>
+      </tr>
+      <tr>
+        <td>73 Strings</td>
+        <td>Extraction + AI-driven valuation</td>
+        <td>$55M Series B (Hamilton Lane) · used by firms managing $8T+, incl. Blackstone</td>
+      </tr>
+      <tr>
+        <td>Passthrough</td>
+        <td>Investor onboarding &amp; KYC/AML</td>
+        <td>Now part of iCapital · 300+ fund managers · 80%+ first-pass accuracy</td>
+      </tr>
+      <tr>
+        <td>Arch</td>
+        <td>Cross-fund LP aggregation &amp; capital calls</td>
+        <td>$52M Series B · $260B+ in tracked assets · 450+ clients</td>
+      </tr>
+      <tr>
+        <td>Allvue + RSM</td>
+        <td>Agentic AI capital-call orchestration</td>
+        <td>Launched May 2026 · industry-first agentic capital-call model</td>
+      </tr>
+      <tr>
+        <td>Carta</td>
+        <td>Cap tables &amp; fund administration</td>
+        <td>$442M ARR · 50,000+ companies · $130B+ AUM tracked</td>
+      </tr>
+      <tr>
+        <td>Mantle</td>
+        <td>AI-native cap tables, early-stage focus</td>
+        <td>AI extraction of SAFEs/grants · positioned as a Carta alternative for startups</td>
+      </tr>
+      <tr>
+        <td>BlackRock eFront</td>
+        <td>Institutional fund admin &amp; reporting</td>
+        <td>Part of BlackRock Aladdin · 850+ clients worldwide</td>
+      </tr>
+      <tr>
+        <td>Intapp DealCloud</td>
+        <td>Front-office deal CRM — adjacent, not overlapping</td>
+        <td>Nasdaq: INTA · deal pipeline &amp; relationship intelligence, not extraction or compliance</td>
+      </tr>
+    </table>
+
+    <div class="card" style="margin-top: 28px;">
+      <h3>The honest risk</h3>
+      <p>Unifying the pipeline is the right architectural call, but it's not automatically a competitive win. Canoe's parsing accuracy comes from years of proprietary training data most new entrants don't have. Passthrough's onboarding depth comes from years of jurisdiction-specific legal logic. Allvue just proved capital-call orchestration is attractive enough that an established institutional player is moving fast into it too. Matching that specialized depth on multiple fronts while also staying unified is a real execution risk — "jack of all trades, master of none" is the actual failure mode to watch for, not a strawman.</p>
+    </div>
+
+    <p class="lede" style="margin-top: 22px; margin-bottom: 0;">None of the nine — not one — natively encodes Islamic-track structuring. That gap isn't contested ground. It's open.</p>
+  </div>
+</section>
+
 <section id="grounding">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">03</span><h2 class="title">Where this is grounded</h2></div>
+    <div class="section-head"><span class="section-num">04</span><h2 class="title">Where this is grounded</h2></div>
     <p class="lede">A CTO pitch is only useful if it's honest about which parts are proven and which are proposed. Here's the real foundation this architecture is built on.</p>
     <div class="grid-2">
       <div class="card">
@@ -331,7 +394,7 @@
 
 <section id="architecture">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">04</span><h2 class="title">How I'd architect it</h2></div>
+    <div class="section-head"><span class="section-num">05</span><h2 class="title">How I'd architect it</h2></div>
     <p class="lede">Three decisions matter more than any single tool choice. Get these right and the stack underneath is largely a build-vs-buy exercise.</p>
 
     <div class="pillar">
@@ -394,7 +457,7 @@
 
 <section id="matrix">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">05</span><h2 class="title">Built, directed, or hired — honestly</h2></div>
+    <div class="section-head"><span class="section-num">06</span><h2 class="title">Built, directed, or hired — honestly</h2></div>
     <p class="lede">The job of a first CTO isn't knowing every tool. It's knowing exactly which of these three columns each capability belongs in, and being right about it.</p>
     <table class="matrix">
       <tr><th>Capability</th><th>Status</th><th>Detail</th></tr>
@@ -439,7 +502,7 @@
 
 <section id="roadmap">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">06</span><h2 class="title">The hiring roadmap</h2></div>
+    <div class="section-head"><span class="section-num">07</span><h2 class="title">The hiring roadmap</h2></div>
     <p class="lede">Capital-efficient by design — every hire is triggered by a real milestone, not a headcount target.</p>
     <div class="roadmap">
       <div class="phase">
@@ -495,7 +558,7 @@
 
 <section id="metrics">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">07</span><h2 class="title">What I'd be measured on</h2></div>
+    <div class="section-head"><span class="section-num">08</span><h2 class="title">What I'd be measured on</h2></div>
     <p class="lede">Numbers I'd commit to before building, not after — and accept if I miss them.</p>
     <div class="metrics">
       <div class="metric"><div class="num">&gt;95%</div><div class="label">extraction accuracy, key fields</div></div>
@@ -521,7 +584,7 @@
 
 <footer>
   <div class="wrap">
-    <span>Mohamed Reda Halloub — Technical Vision for A27</span>
+    <span>Mohammad Reda Halloub — Technical Vision for A27</span>
     <span>Prepared for review, not a final specification</span>
   </div>
 </footer>
